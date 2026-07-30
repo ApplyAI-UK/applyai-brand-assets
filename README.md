@@ -1,67 +1,77 @@
 # Apply AI — Brand Assets
 
-Logos, fonts, colors, and motion assets for Apply AI. Public repo so assets can be pulled directly into websites (e.g. via jsDelivr) without manual downloads.
+Logos and fonts for Apply AI. Public repo so assets can be pulled directly into live sites (e.g. via jsDelivr) without manual downloads.
 
 ## 📁 Structure
 
 ```
 applyai-brand-assets/
-├── logos/
-│   ├── svg/              # vector, preferred for web
-│   ├── png/               # raster, transparent bg
-│   └── favicon/
-├── fonts/
-│   ├── woff2/              # use these for web
-│   └── otf-ttf/             # source files for design tools
-├── colors/
-│   └── palette.md
-├── motion/                  # animated brand assets
-└── icons/
+├── LICENSE
+├── README.md
+├── APPLY AI FONT/
+│   ├── EULA.pdf                          # font license — check before external reuse
+│   ├── Albra Book Medium/
+│   │   ├── OTF/                          # source, for design tools
+│   │   └── WEB/                          # .woff / .woff2 — use these for web
+│   ├── Albra Book Regular/
+│   ├── Albra Display Light/
+│   ├── Albra Grotesk Light/
+│   └── Albra Grotesk Medium/
+└── APPLY AI LOGO/
+    ├── Digital/                          # RGB — use for web/screen
+    │   ├── 1 Logo Lockup/
+    │   │   ├── AI/                       # Illustrator source
+    │   │   ├── PNG/High Res | Low Res/
+    │   │   └── SVG/                      # preferred for web
+    │   └── 2 Symbol/                     # same structure, icon-only mark
+    └── Print/                            # CMYK — for print use only
+        ├── 1 Logo Lockup/ (AI / EPS / PDF)
+        └── 2 Symbol/ (AI / EPS / PDF)
 ```
 
-## 🎨 Colors
-
-| Name | Hex | Usage |
-|------|-----|-------|
-| Primary | `#______` | e.g. main brand color |
-| Secondary | `#______` | |
-| Accent | `#______` | |
-
-## 🖼 Logos
-
-- Use `svg/` versions wherever possible — scales cleanly, smaller file size
-- Use `png/` only when SVG isn't supported
-- Don't stretch, recolor, or rotate the logo outside approved variants
-- Minimum clear space: [fill in from brand guidelines]
+Each logo folder has three color variants: **Black**, **Orange**, **White**.
 
 ## 🔤 Fonts
 
-Primary typeface: **[Font Name]**
+Typeface family: **Albra** (Book, Display, Grotesk — in Medium/Regular/Light weights)
+
+Font license: see `APPLY AI FONT/EULA.pdf`. Confirm redistribution terms before using outside Apply AI properties.
 
 ```css
 @font-face {
-  font-family: 'BrandFont';
-  src: url('https://cdn.jsdelivr.net/gh/YOUR-USERNAME/applyai-brand-assets@main/fonts/woff2/brandfont.woff2') format('woff2');
+  font-family: 'Albra Book Medium';
+  src: url('https://cdn.jsdelivr.net/gh/ApplyAI-UK/applyai-brand-assets@main/APPLY%20AI%20FONT/Albra%20Book%20Medium/WEB/RL-Albra-Book-Medium.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/gh/ApplyAI-UK/applyai-brand-assets@main/APPLY%20AI%20FONT/Albra%20Book%20Medium/WEB/RL-Albra-Book-Medium.woff') format('woff');
 }
+body {
+  font-family: 'Albra Book Medium', sans-serif;
+}
+```
+
+## 🖼 Logos
+
+- Use **Digital → SVG** for web wherever possible — scales cleanly, smallest file size
+- Use **Digital → PNG (High Res)** only when SVG isn't supported
+- Use **Print** versions (CMYK) only for physical/print materials, never on web
+- Don't stretch, recolor, or rotate the logo outside the provided Black/Orange/White variants
+
+Example:
+```html
+<img src="https://cdn.jsdelivr.net/gh/ApplyAI-UK/applyai-brand-assets@main/APPLY%20AI%20LOGO/Digital/1%20Logo%20Lockup/SVG/ApplyAI_Lockup_Black_RGB.svg" alt="Apply AI logo">
 ```
 
 ## 🔗 Using assets in a live site
 
-All assets in this repo can be pulled directly via jsDelivr (recommended — more reliable content-type handling than raw GitHub URLs):
+All assets can be pulled directly via jsDelivr (recommended over raw GitHub URLs — more reliable content-type handling, especially for fonts):
 
 ```
-https://cdn.jsdelivr.net/gh/YOUR-USERNAME/applyai-brand-assets@main/<path-to-file>
+https://cdn.jsdelivr.net/gh/ApplyAI-UK/applyai-brand-assets@main/<path-to-file>
 ```
 
-Example:
-```html
-<img src="https://cdn.jsdelivr.net/gh/YOUR-USERNAME/applyai-brand-assets@main/logos/svg/logo-primary.svg" alt="Apply AI logo">
-```
+Folder/file names contain spaces, which must be URL-encoded as `%20` in the path (see examples above).
 
-> Note: jsDelivr caches files — if you update an asset, it may take a few hours to refresh unless you version the tag (e.g. `@v1.1` instead of `@main`).
+> jsDelivr caches files — if you update an asset, it may take a few hours to refresh unless you version the tag (e.g. `@v1.1` instead of `@main`).
 
-## 📄 License / Usage
+## 📄 License
 
-Internal brand assets — for use on Apply AI properties only. Not for external redistribution.
-
-Fonts included here are licensed for [describe: web use / internal use / etc.] — confirm license terms before reuse outside this project.
+See [`LICENSE`](./LICENSE) — all rights reserved, Apply AI. Third-party fonts remain subject to the terms in `APPLY AI FONT/EULA.pdf`.
